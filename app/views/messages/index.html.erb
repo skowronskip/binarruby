@@ -16,10 +16,12 @@
         <%= message.user.first_name %> <%= message.user.last_name %> 
       <% end %>
       </td>
-      <td> <%= link_to message.comments.count, comments_path %> </td>
+      <td> <%= link_to message.comments.count, comments_path({message_id: message.id}) %> </td>
       <td> <%= link_to 'Show', message %> |
-      <%= link_to 'Delete', message, method: :delete %> | 
-      <%= link_to 'Comment', new_comment_path({message: message}) %> </td>
+      <% if message.user.id == current_user.id %>
+        <%= link_to 'Delete', message, method: :delete %> |
+      <% end %>
+      <%= link_to 'Comment', new_comment_path({message_id: message.id}) %> </td>
        
     </tr>
   <% end %>

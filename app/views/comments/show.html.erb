@@ -1,4 +1,11 @@
 <h1><%= @comment.content %></h1>
-<h5><%= @comment.author %></h5>
+<h5><% if @comment.user.first_name.blank? && @comment.user.last_name.blank? %>
+<%= @comment.user.email %>
+<% else %>
+<%= @comment.user.first_name %> <%= @comment.user.last_name %>
+<% end %></h5>
+<% if @comment.user == current_user %> 
+    <%= link_to 'Edit comment', edit_comment_path %> <br>
+<% end %>
 <%= link_to 'Back to the message', @comment.message %> <br>
 <%= link_to 'Back to all comments', comments_path %>

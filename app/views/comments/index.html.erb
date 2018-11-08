@@ -8,9 +8,16 @@
   <% @comments.each do |comment| %>
     <tr>
       <td> <%= comment.content %> </td>
-      <td> <%= comment.author %> </td>
-      <td> <%= link_to 'Show', comment %> |
-      <%= link_to 'Delete', comment, method: :delete %> </td>
+      <td> <% if comment.user.first_name.blank? && comment.user.first_name.blank? %> 
+              <%= comment.user.email %>
+           <% else %>
+              <%= comment.user.first_name %> <%= comment.user.last_name %>
+           <% end %> 
+      </td>
+      <td> <%= link_to 'Show', comment %> 
+      <% if comment.user == current_user %> 
+        | <%= link_to 'Delete', comment, method: :delete %> </td>
+      <% end %>
     </tr>
   <% end %>
 </table>

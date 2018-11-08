@@ -25,6 +25,9 @@ class MessagesController < ApplicationController
 
   def edit 
     @message = Message.find(params[:id])
+    if @message.user != current_user
+      redirect_to message_path
+    end
   end
 
   def update 
@@ -38,7 +41,9 @@ class MessagesController < ApplicationController
 
   def destroy
     message = Message.find(params[:id])
-    message.destroy
+    if message.user == current_user
+      message.destroy
+    end
     redirect_to messages_path
   end
 

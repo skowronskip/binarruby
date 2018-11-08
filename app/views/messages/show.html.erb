@@ -6,5 +6,7 @@
 
 <h3>Comments</h3>
 <%= render partial: 'comments', collection: @message.comments, as: :comment %>
-<%= link_to 'Edit message', edit_message_path(@message.id) %> <br>
+<% if @message.user == current_user %> 
+    <%= link_to 'Edit message', edit_message_path(@message.id) %> <br>
+<% end %>
 <%= link_to 'Back to all messages', messages_path %>

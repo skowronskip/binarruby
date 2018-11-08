@@ -1,4 +1,13 @@
 <p>
     <strong>Content:</strong>
-    <%=comment.content%>
+    <%=comment.content%><br>
+    <strong>Author:</strong>
+    <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
+        <%= comment.user.email %>
+    <% else %>
+        <%= comment.user.first_name %> <%= comment.user.last_name %>
+    <% end %><br>
+    <% if comment.user == current_user %> 
+        <%= link_to 'Edit comment', edit_comment_path({ id: comment.id }) %>
+    <% end %>
 </p>
