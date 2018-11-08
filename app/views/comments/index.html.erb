@@ -1,0 +1,16 @@
+<h1>List of all comments</h1>
+<table style="padding: 5px;border: 1px #999999 solid; color: #606060; text-align: center;">
+  <tr>
+    <td>Content</td>
+    <td>Author</td>
+    <td>Action</td>
+  </tr>
+  <% @comments.each do |comment| %>
+    <tr>
+      <td> <%= comment.content %> </td>
+      <td> <%= comment.author %> </td>
+      <td> <%= link_to 'Show', comment %> |
+      <%= link_to 'Delete', comment, method: :delete %> </td>
+    </tr>
+  <% end %>
+</table>
