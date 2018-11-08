@@ -2,12 +2,14 @@
 <table style="padding: 5px;border: 1px #999999 solid; color: #606060; text-align: center;">
   <tr>
     <td>Message</td>
+    <td>Author</td>
     <td>Comments</td>
     <td>Action</td>
   </tr>
   <% @messages.each do |message| %>
     <tr>
       <td> <%= message.content %> </td>
+      <td> <%= message.user.email %> </td>
       <td> <%= link_to message.comments.count, comments_path %> </td>
       <td> <%= link_to 'Show', message %> |
       <%= link_to 'Delete', message, method: :delete %> </td>
