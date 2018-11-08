@@ -18,7 +18,9 @@
       </td>
       <td> <%= link_to message.comments.count, comments_path %> </td>
       <td> <%= link_to 'Show', message %> |
-      <%= link_to 'Delete', message, method: :delete %> </td>
+      <%= link_to 'Delete', message, method: :delete %> | 
+      <%= link_to 'Comment', new_comment_path({message: message}) %> </td>
+       
     </tr>
   <% end %>
 </table>
