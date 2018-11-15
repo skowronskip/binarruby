@@ -1,9 +1,8 @@
 class MessagesController < ApplicationController
   before_action	:authenticate_user!
   def index
-    @messages = Message.all
+    @messages = Message.all.sort {|m1,m2| m2.created_at <=> m1.created_at}
   end
-
   def show
     @message = Message.find(params[:id])
     @comments = @message.comments
@@ -17,8 +16,10 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     @message.user = current_user
     if @message.save
+      flash[:notice] = "Message has been added."
       redirect_to @message
     else
+      flash[:alert] = "Error occured, try again."
       render :new
     end
   end
@@ -33,8 +34,11 @@ class MessagesController < ApplicationController
   def update 
     @message = Message.find(params[:id])
     if @message.update(message_params)
+      flash[:notice] = "Message has been edited."
       redirect_to @message
     else
+      flash[:alert] = "Error occured, try again."
+      
       render :edit
     end
   end
@@ -44,6 +48,7 @@ class MessagesController < ApplicationController
     if message.user == current_user
       message.destroy
     end
+    flash[:notice] = "Message has been deleted."
     redirect_to messages_path
   end
 

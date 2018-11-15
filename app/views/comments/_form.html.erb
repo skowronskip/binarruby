@@ -9,12 +9,12 @@
 <% end %>
 
 <%= form_for(comment) do |form| %> 
-    <div class="field">
+    <div class="form-group">
         <%= form.label :content %>
-        <%= form.text_field :content %>
+        <%= form.text_area :content, class: 'form-control' %>
     </div>
     <%= form.hidden_field :message_id %>
     <div class="actions">
-        <%= form.submit "Submit" %>
+        <%= form.submit "Submit", class: 'btn btn-primary' %>
     </div>
 <% end %>

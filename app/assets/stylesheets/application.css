@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+
+
+.alert-box {
+    position: fixed;
+    top: 20%;
+    right: 0;
+    width: 500px;
+    z-index: 999;
+}
+
+.message-date {
+    font-size: 12px;
+}
+
+.word-wrap {
+    word-wrap: break-word;
+}

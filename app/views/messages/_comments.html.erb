@@ -1,13 +1,20 @@
-<p>
-    <strong>Content:</strong>
-    <%=comment.content%><br>
-    <strong>Author:</strong>
-    <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
-        <%= comment.user.email %>
-    <% else %>
-        <%= comment.user.first_name %> <%= comment.user.last_name %>
-    <% end %><br>
-    <% if comment.user == current_user %> 
-        <%= link_to 'Edit comment', edit_comment_path({ id: comment.id }) %>
-    <% end %>
-</p>
+<li class="list-group-item">
+    <div class="row">
+        <div class="col-10">
+            <strong>
+                <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
+                    <%= comment.user.email %> 
+                <% else %>
+                    <%= comment.user.first_name %> <%= comment.user.last_name %> 
+                <% end %>
+                : 
+            </strong>
+            <%= comment.content %>
+        </div>
+        <div class="col-2 text-right">
+            <% if comment.user == current_user %> 
+                <%= link_to 'Edit', edit_comment_path({ id: comment.id }), class: 'btn btn-primary btn-sm' %>
+            <% end %>
+        </div>
+    </div>
+</li>

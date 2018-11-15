@@ -1,23 +1,42 @@
-<h1>List of all comments</h1>
-<table style="padding: 5px;border: 1px #999999 solid; color: #606060; text-align: center;">
-  <tr>
-    <td>Content</td>
-    <td>Author</td>
-    <td>Action</td>
-  </tr>
-  <% @comments.each do |comment| %>
-    <tr>
-      <td> <%= comment.content %> </td>
-      <td> <% if comment.user.first_name.blank? && comment.user.first_name.blank? %> 
-              <%= comment.user.email %>
-           <% else %>
-              <%= comment.user.first_name %> <%= comment.user.last_name %>
-           <% end %> 
-      </td>
-      <td> <%= link_to 'Show', comment %> 
-      <% if comment.user == current_user %> 
-        | <%= link_to 'Delete', comment, method: :delete %> </td>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-12 col-md-8 offset-md-2">
+      <% if @message_id.nil? %>
+        <%= link_to 'Back to all messages', messages_path, class: 'btn btn-dark' %>
+        <%= link_to 'See all comments', comments_path, class: 'btn btn-dark' %>
+        <h1 class="mt-4">List of all comments</h1>
+      <% else %>
+      <%= link_to 'Back to all messages', messages_path, class: 'btn btn-dark' %>
+      <%= link_to 'See all comments', comments_path, class: 'btn btn-dark' %>
+      <%= link_to 'Back to the message', Message.find(@message_id), class: 'btn btn-info' %>
+        <h1 class="mt-4">List of all comments for message: <%= @message_id %> </h1>
       <% end %>
-    </tr>
-  <% end %>
-</table>
+      <ul class="list-group">
+        <% @comments.each do |comment| %>
+        <li class="list-group-item">
+          <div class="row">
+            <div class="col-6 col-md-8 word-wrap">
+              <strong>
+                  <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
+                      <%= comment.user.email %> 
+                  <% else %>
+                      <%= comment.user.first_name %> <%= comment.user.last_name %> 
+                  <% end %>
+                  :
+              </strong>
+              <%= comment.content %>
+            </div>
+            <div class="col-6 col-md-4 text-right">
+              <%= link_to 'Show', comment, class: 'btn btn-primary btn-sm' %> 
+              <% if comment.user == current_user %>
+                <%= link_to 'Edit', edit_comment_path({ id: comment.id }), class: 'btn btn-info btn-sm' %>
+                <%= link_to 'Delete', comment, method: :delete, class: 'btn btn-danger btn-sm' %>
+              <% end %>
+            </div>
+          </div>          
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
