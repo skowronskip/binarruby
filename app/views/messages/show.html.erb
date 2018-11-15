@@ -11,16 +11,20 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-12">
-                            <p class="text-secondary mt-0 mb-2">
-                                Author:
-                            <% if @message.user.first_name.blank? && @message.user.last_name.blank? %>
-                                <%= @message.user.email %> 
-                            <% else %>
-                                <%= @message.user.first_name %> <%= @message.user.last_name %> 
-                            <% end %>
-                            </p>
+                      <div class="col-12">
+                        <div class="avatar-40 text-secondary mb-3">
+                          <% if @message.user.picture.present? %>
+                            <%= image_tag(@message.user.picture.url) %>
+                          <% else %>
+                            <%= image_tag('default-avatar.png') %>
+                          <% end %>
+                          <% if @message.user.first_name.blank? && @message.user.last_name.blank? %>
+                            <%= @message.user.email %>
+                          <% else %>
+                            <%= @message.user.first_name %> <%= @message.user.last_name %>
+                          <% end %>
                         </div>
+                      </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
@@ -38,7 +42,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 text-right text-secondary mt-3 mb-0">
-                            <span class="message-date"> <%= @message.created_at.in_time_zone("CET").strftime("%F %T") %> </h6>
+                            <span class="message-date"> <%= @message.created_at.in_time_zone("CET").strftime("%F %T") %> </span>
                             <hr>
                         </div>
                     </div>

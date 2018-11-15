@@ -30,3 +30,25 @@
 .word-wrap {
     word-wrap: break-word;
 }
+
+.avatar-200 img {
+    object-fit: cover;
+    width: 200px;
+    height: 200px;
+}
+
+.avatar-40 img {
+    border: 1px #bbbbbb solid;
+    object-fit: cover;
+    margin-right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.avatar-30 img {
+    border: 1px #bbbbbb solid;
+    object-fit: cover;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+}

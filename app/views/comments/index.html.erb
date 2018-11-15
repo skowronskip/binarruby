@@ -16,15 +16,22 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-6 col-md-8 word-wrap">
-              <strong>
+              <div class="avatar-30">
+                <% if comment.user.picture.present? %>
+                  <%= image_tag(comment.user.picture.url) %>
+                <% else %>
+                  <%= image_tag('default-avatar.png') %>
+                <% end %>
+                <strong>
                   <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
-                      <%= comment.user.email %> 
+                    <%= comment.user.email %>
                   <% else %>
-                      <%= comment.user.first_name %> <%= comment.user.last_name %> 
+                    <%= comment.user.first_name %> <%= comment.user.last_name %>
                   <% end %>
                   :
-              </strong>
-              <%= comment.content %>
+                </strong>
+                <%= comment.content %>
+              </div>
             </div>
             <div class="col-6 col-md-4 text-right">
               <%= link_to 'Show', comment, class: 'btn btn-primary btn-sm' %> 

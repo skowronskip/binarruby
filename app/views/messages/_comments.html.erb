@@ -1,15 +1,22 @@
 <li class="list-group-item">
     <div class="row">
         <div class="col-10">
+          <div class="avatar-30">
+            <% if comment.user.picture.present? %>
+              <%= image_tag(comment.user.picture.url) %>
+            <% else %>
+              <%= image_tag('default-avatar.png') %>
+            <% end %>
             <strong>
-                <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
-                    <%= comment.user.email %> 
-                <% else %>
-                    <%= comment.user.first_name %> <%= comment.user.last_name %> 
-                <% end %>
-                : 
+              <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
+                <%= comment.user.email %>
+              <% else %>
+                <%= comment.user.first_name %> <%= comment.user.last_name %>
+              <% end %>
+              :
             </strong>
             <%= comment.content %>
+          </div>
         </div>
         <div class="col-2 text-right">
             <% if comment.user == current_user %> 

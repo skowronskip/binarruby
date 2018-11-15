@@ -3,6 +3,7 @@ class MessagesController < ApplicationController
   def index
     @messages = Message.all.sort {|m1,m2| m2.created_at <=> m1.created_at}
   end
+
   def show
     @message = Message.find(params[:id])
     @comments = @message.comments
@@ -37,8 +38,7 @@ class MessagesController < ApplicationController
       flash[:notice] = "Message has been edited."
       redirect_to @message
     else
-      flash[:alert] = "Error occured, try again."
-      
+      flash[:alert] = "Error occured, try again." 
       render :edit
     end
   end
