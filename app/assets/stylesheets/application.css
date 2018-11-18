@@ -27,6 +27,11 @@
     font-size: 12px;
 }
 
+.comment-date {
+    margin: 5px 0 0 40px;
+    font-size: 12px;
+}
+
 .word-wrap {
     word-wrap: break-word;
 }
@@ -48,7 +53,7 @@
 .avatar-30 img {
     border: 1px #bbbbbb solid;
     object-fit: cover;
-    margin-right: 5px;
+    margin-right: 10px;
     width: 30px;
     height: 30px;
 }

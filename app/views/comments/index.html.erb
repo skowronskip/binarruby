@@ -16,12 +16,14 @@
         <li class="list-group-item">
           <div class="row">
             <div class="col-6 col-md-8 word-wrap">
-              <div class="avatar-30">
+              <div class="avatar-30 d-table-cell">
                 <% if comment.user.picture.present? %>
                   <%= image_tag(comment.user.picture.url) %>
                 <% else %>
                   <%= image_tag('default-avatar.png') %>
                 <% end %>
+              </div>
+              <span class="d-table-cell">
                 <strong>
                   <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
                     <%= comment.user.email %>
@@ -31,7 +33,7 @@
                   :
                 </strong>
                 <%= comment.content %>
-              </div>
+              </span>
             </div>
             <div class="col-6 col-md-4 text-right">
               <%= link_to 'Show', comment, class: 'btn btn-primary btn-sm' %> 
@@ -40,7 +42,12 @@
                 <%= link_to 'Delete', comment, method: :delete, class: 'btn btn-danger btn-sm' %>
               <% end %>
             </div>
-          </div>          
+          </div>
+          <div class="row">
+            <div class="col-12 text-secondary">
+              <p class="comment-date"><%=  comment.created_at.in_time_zone("CET").strftime("%F %T") %></p>
+            </div>
+          </div>
         </li>
         <% end %>
       </ul>

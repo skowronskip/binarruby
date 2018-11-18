@@ -12,7 +12,7 @@
                 <div class="card-body">
                     <div class="row">
                       <div class="col-12">
-                        <div class="avatar-40 text-secondary mb-3">
+                        <div class="avatar-40 mb-3">
                           <% if @message.user.picture.present? %>
                             <%= image_tag(@message.user.picture.url) %>
                           <% else %>
@@ -48,10 +48,10 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <% if @message.comments.count > 0 %>
+                            <% if @comments.count > 0 %>
                                 <h5><strong> Comments </strong></h5>
                                 <ul class="list-group">
-                                    <%= render partial: 'comments', collection: @message.comments, as: :comment %>
+                                    <%= render partial: 'comments', collection: @comments, as: :comment %>
                                 </ul>
                             <% end %>
                         </div>

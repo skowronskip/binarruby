@@ -2,9 +2,9 @@ class CommentsController < ApplicationController
     def index
       @message_id = params[:message_id]
       if(!@message_id.nil?)
-        @comments = Comment.where(message_id: @message_id)
+        @comments = Comment.where(message_id: @message_id).order(created_at: :desc)
       else
-        @comments = Comment.all
+        @comments = Comment.all.order(created_at: :desc)
       end
     end
 

@@ -6,27 +6,38 @@
         <%= link_to 'Back to the message', @comment.message, class: 'btn btn-info' %>
             <div class="card mt-4">
                 <div class="card-body">
-                    <h4><%= @comment.content %></h4>
-                  <div class="avatar-30">
-                    <% if @comment.user.picture.present? %>
-                      <%= image_tag(@comment.user.picture.url) %>
-                    <% else %>
-                      <%= image_tag('default-avatar.png') %>
-                    <% end %>
-                    <strong>
-                      <% if @comment.user.first_name.blank? && @comment.user.last_name.blank? %>
-                        <%= @comment.user.email %>
-                      <% else %>
-                        <%= @comment.user.first_name %> <%= @comment.user.last_name %>
-                      <% end %>
-                    </strong>
+                  <div class="row">
+                    <div class="col-12">
+                      <h4><%= @comment.content %></h4>
+                      <div class="avatar-30">
+                        <% if @comment.user.picture.present? %>
+                          <%= image_tag(@comment.user.picture.url) %>
+                        <% else %>
+                          <%= image_tag('default-avatar.png') %>
+                        <% end %>
+                        <strong>
+                          <% if @comment.user.first_name.blank? && @comment.user.last_name.blank? %>
+                            <%= @comment.user.email %>
+                          <% else %>
+                            <%= @comment.user.first_name %> <%= @comment.user.last_name %>
+                          <% end %>
+                        </strong>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="card-footer">
-                    <% if @comment.user == current_user %> 
+                  <div class="row">
+                    <div class="col-12 col-md-8">
+                      <% if @comment.user == current_user %>
                         <%= link_to 'Edit', edit_comment_path, class: 'btn btn-primary btn-sm' %>
                         <%= link_to 'Delete', @comment, method: :delete, class: 'btn btn-danger btn-sm' %>
-                    <% end %>
+                      <% end %>
+                    </div>
+                    <div class="col-12 col-md-4 text-right">
+                      <p class="comment-date"><%=  @comment.created_at.in_time_zone("CET").strftime("%F %T") %></p>
+                    </div>
+                  </div>
                 </div>
             </div>
         </div>

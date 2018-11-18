@@ -1,22 +1,22 @@
 <li class="list-group-item">
     <div class="row">
         <div class="col-10">
-          <div class="avatar-30">
+          <div class="avatar-30 d-table-cell">
             <% if comment.user.picture.present? %>
               <%= image_tag(comment.user.picture.url) %>
             <% else %>
               <%= image_tag('default-avatar.png') %>
             <% end %>
-            <strong>
-              <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
-                <%= comment.user.email %>
-              <% else %>
-                <%= comment.user.first_name %> <%= comment.user.last_name %>
-              <% end %>
-              :
-            </strong>
-            <%= comment.content %>
           </div>
+          <span class="d-table-cell"><strong>
+            <% if comment.user.first_name.blank? && comment.user.last_name.blank? %>
+              <%= comment.user.email %>
+            <% else %>
+              <%= comment.user.first_name %>&nbsp;<%= comment.user.last_name %>
+            <% end %>
+          </strong>
+            : <%= comment.content %>
+          </span>
         </div>
         <div class="col-2 text-right">
             <% if comment.user == current_user %> 
@@ -24,4 +24,9 @@
             <% end %>
         </div>
     </div>
+  <div class="row">
+    <div class="col-12 text-secondary">
+      <p class="comment-date"><%=  comment.created_at.in_time_zone("CET").strftime("%F %T") %></p>
+    </div>
+  </div>
 </li>
