@@ -14,46 +14,6 @@
  *= require_self
  */
 
-
-.alert-box {
-    position: fixed;
-    top: 20%;
-    right: 0;
-    width: 500px;
-    z-index: 999;
-}
-
-.message-date {
-    font-size: 12px;
-}
-
-.comment-date {
-    margin: 5px 0 0 40px;
-    font-size: 12px;
-}
-
 .word-wrap {
     word-wrap: break-word;
-}
-
-.avatar-200 img {
-    object-fit: cover;
-    width: 200px;
-    height: 200px;
-}
-
-.avatar-40 img {
-    border: 1px #bbbbbb solid;
-    object-fit: cover;
-    margin-right: 10px;
-    width: 40px;
-    height: 40px;
-}
-
-.avatar-30 img {
-    border: 1px #bbbbbb solid;
-    object-fit: cover;
-    margin-right: 10px;
-    width: 30px;
-    height: 30px;
 }
