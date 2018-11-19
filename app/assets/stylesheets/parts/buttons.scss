@@ -1,0 +1,105 @@
+.cvierkacz-button {
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  padding: 12px 25px;
+  background-color: $main-color;
+  border: none;
+  color: white;
+  border-radius: 25px;
+  transition: background-color 0.5s, color 0.5s;
+  -webkit-transition: background-color 0.5s, color 0.5s;
+}
+
+.cvierkacz-button:hover {
+  background-color: $second-color;
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.cvierkacz-button-dark {
+  @extend .cvierkacz-button;
+
+  background-color: $dark-color;
+}
+
+.cvierkacz-button-dark:hover {
+  background-color: $dark-second-color;
+}
+
+.cvierkacz-button-red {
+  @extend .cvierkacz-button;
+
+  background-color: #B00100;
+}
+
+.cvierkacz-button-red:hover {
+  background-color: #800000;
+}
+
+.cvierkacz-button-green {
+  @extend .cvierkacz-button;
+
+  background-color: #00a040;
+}
+
+.cvierkacz-button-green:hover {
+  background-color: #007025;
+}
+
+.cvierkacz-button-outline {
+  @extend .cvierkacz-button;
+
+  background-color: transparent;
+  border: 1px $main-color solid;
+  color: $main-color;
+}
+
+.cvierkacz-button-outline:hover {
+  background-color: $main-color;
+  color: white;
+}
+
+.cvierkacz-button-outline-dark {
+  @extend .cvierkacz-button-outline;
+
+  border: 1px $dark-color solid;
+  color: $dark-color;
+}
+
+.cvierkacz-button-outline-dark:hover {
+  background-color: $dark-color;
+  color: white;
+}
+
+.cvierkacz-button-outline-red {
+  @extend .cvierkacz-button-outline;
+
+  border: 1px #B00100 solid;
+  color: #B00100;
+}
+
+.cvierkacz-button-outline-red:hover {
+  background-color: #B00100;
+  color: white;
+}
+
+.cvierkacz-button-outline-green {
+  @extend .cvierkacz-button-outline;
+
+  border: 1px #00a040 solid;
+  color: #00a040;
+}
+
+.cvierkacz-button-outline-green:hover {
+  background-color: #00a040;
+  color: white;
+}
+
+.cvierkacz-button-small {
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 12px;
+  padding: 9px 15px;
+}

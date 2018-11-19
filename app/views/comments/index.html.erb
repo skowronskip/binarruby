@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-12 col-md-8 offset-md-2">
       <% if @message_id.nil? %>
-        <%= link_to 'Back to all messages', messages_path, class: 'btn btn-dark' %>
-        <%= link_to 'See all comments', comments_path, class: 'btn btn-dark' %>
+        <%= link_to 'Back to all messages', messages_path, class: 'cvierkacz-button-dark' %>
+        <%= link_to 'See all comments', comments_path, class: 'cvierkacz-button-dark' %>
         <h1 class="mt-4">List of all comments</h1>
       <% else %>
-      <%= link_to 'Back to all messages', messages_path, class: 'btn btn-dark' %>
-      <%= link_to 'See all comments', comments_path, class: 'btn btn-dark' %>
-      <%= link_to 'Back to the message', Message.find(@message_id), class: 'btn btn-info' %>
+      <%= link_to 'Back to all messages', messages_path, class: 'cvierkacz-button-dark' %>
+      <%= link_to 'See all comments', comments_path, class: 'cvierkacz-button-dark' %>
+      <%= link_to 'Back to the message', Message.find(@message_id), class: 'cvierkacz-button' %>
         <h1 class="mt-4">List of all comments for message: <%= @message_id %> </h1>
       <% end %>
       <ul class="list-group">
@@ -36,10 +36,10 @@
               </span>
             </div>
             <div class="col-6 col-md-4 text-right">
-              <%= link_to 'Show', comment, class: 'btn btn-primary btn-sm' %> 
+              <%= link_to 'Show', comment, class: 'cvierkacz-button cvierkacz-button-small' %>
               <% if comment.user == current_user %>
-                <%= link_to 'Edit', edit_comment_path({ id: comment.id }), class: 'btn btn-info btn-sm' %>
-                <%= link_to 'Delete', comment, method: :delete, class: 'btn btn-danger btn-sm' %>
+                <%= link_to 'Edit', edit_comment_path({ id: comment.id }), class: 'cvierkacz-button-dark cvierkacz-button-small' %>
+                <%= link_to 'Delete', comment, method: :delete, class: 'cvierkacz-button-red cvierkacz-button-small' %>
               <% end %>
             </div>
           </div>

@@ -9,10 +9,25 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
- *= require_tree .
+ *.
  *= require_self
  */
+
+$main-color: #4039b4;
+$second-color: #100988;
+$dark-color: #404040;
+$dark-second-color: #202020;
+
+a, a:hover {
+  color: $main-color;
+}
+
+
+@import 'parts/messages.scss';
+@import 'parts/alerts.scss';
+@import 'parts/comments.scss';
+@import 'parts/users.scss';
+@import 'parts/buttons.scss';
 
 .word-wrap {
     word-wrap: break-word;
