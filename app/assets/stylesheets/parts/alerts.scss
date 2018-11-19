@@ -5,3 +5,42 @@
   width: 500px;
   z-index: 999;
 }
+
+.cvierkacz-alert {
+  position: relative;
+  border-radius: 0;
+  padding: 20px 0;
+  min-height: 70px;
+  font-weight: bold;
+  color: white;
+
+  i {
+    float: left;
+    color: white;
+    line-height: 100%;
+    padding: 0 30px;
+    font-size: 30px;
+  }
+
+  p {
+    margin: 0 40px 0 0;
+    font-size: 16px;
+  }
+}
+
+.close {
+  margin: 10px 0;
+  opacity: 1;
+}
+
+.cvierkacz-alert-success {
+  @extend .cvierkacz-alert;
+
+  background-color: #00a040;
+}
+
+.cvierkacz-alert-failure {
+  @extend .cvierkacz-alert;
+
+  background-color: #B00100;
+}
