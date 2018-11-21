@@ -13,13 +13,17 @@
  *= require_self
  */
 
-$main-color: #4039b4;
-$second-color: #100988;
+$main-color: #0005e5;
+$second-color: #000975;
 $dark-color: #404040;
 $dark-second-color: #202020;
 
 a, a:hover {
   color: $main-color;
+}
+
+body {
+  background-color: #f0f0f0;
 }
 
 

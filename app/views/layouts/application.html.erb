@@ -48,22 +48,30 @@
     </nav>
     <div class="alert-box">
       <% if notice %>
-      <div class="alert cvierkacz-alert-success alert-dismissible">
-        <i class="fas fa-check"></i>
-        <p><%= notice %></p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+        <div class="alert cvierkacz-alert-success alert-dismissible">
+          <div class="media">
+            <i class="align-self-center fas fa-check"></i>
+            <div class="align-self-center media-body">
+              <span><%= notice %></span>
+            </div>
+          </div>
+          <button type="button" class="align-self-center close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
     <% end %>
     <% if alert %>
-      <div class="alert cvierkacz-alert-failure alert-dismissible">
-        <i class="fas fa-times"></i>
-        <p><%= alert %></p>
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
+        <div class="alert cvierkacz-alert-failure alert-dismissible">
+          <div class="media">
+            <i class="align-self-center fas fa-times"></i>
+            <div class="align-self-center media-body">
+              <span><%= alert %></span>
+            </div>
+          </div>
+          <button type="button" class="align-self-center close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
     <% end %>
     </div>
     <%= yield %>
