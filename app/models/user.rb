@@ -9,7 +9,6 @@ class User < ApplicationRecord
   # Setup accessible (or protected) attributes for your model
   #attr_accessor :email, :password, :remember_me, :picture, :picture_cache, :remove_picture
 
-  validates_presence_of   :picture
   validates_integrity_of  :picture
   validates_processing_of :picture
   

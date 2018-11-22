@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+    before_action	:authenticate_user!
     def index
       @message_id = params[:message_id]
       if(!@message_id.nil?)
@@ -8,9 +9,13 @@ class CommentsController < ApplicationController
       end
     end
 
-    def new 
-      @comment = Comment.new
-      @comment.message_id = Message.find(params[:message_id]).id
+    def new
+      if params[:message_id].blank?
+        redirect_to comments_path, status: 403
+      else
+        @comment = Comment.new
+        @comment.message_id = Message.find(params[:message_id]).id
+      end
     end
   
     def show
