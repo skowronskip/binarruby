@@ -1,11 +1,13 @@
 class MessagesController < ApplicationController
   before_action	:authenticate_user!
   def index
-    @messages = Message.all.sort { |m1,m2| m2.created_at <=> m1.created_at }
+    messages_array = Message.all.order(created_at: :desc)
+    @messages = messages_array.map {|message| MessagePresenter.new(message)}
+
   end
 
   def show
-    @message = Message.find(params[:id])
+    @message = MessagePresenter.new(Message.find(params[:id]))
     @comments = @message.comments.order(created_at: :desc)
   end
 

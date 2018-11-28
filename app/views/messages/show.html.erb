@@ -25,7 +25,7 @@
                             <%= @message.user.first_name %> <%= @message.user.last_name %>
                           <% end %>
                         </p>
-                        <p class="message-date"> <%= @message.created_at.in_time_zone("CET").strftime("%F %T") %> </p>
+                        <p class="message-date">Published on: <%= @message.day_of_week %> </p>
                       </div>
                     </div>
                   </div>
