@@ -20,7 +20,7 @@ RSpec.describe MessagesController, type: :controller do
         message1 = create(:message, user_id: user.id)
         message2 = create(:message, user_id: user.id)
         subject
-        expect(assigns(:messages)).to match_array([message1, message2])
+        expect(assigns(:messages_array)).to match_array([message1, message2])
       end
     end
   end

@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
   before_action	:authenticate_user!
   def index
-    messages_array = Message.all.order(created_at: :desc)
-    @messages = messages_array.map {|message| MessagePresenter.new(message)}
+    @messages_array = Message.all.order(created_at: :desc)
+    @messages = @messages_array.map {|message| MessagePresenter.new(message)}
 
   end
 
