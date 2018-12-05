@@ -46,10 +46,12 @@
             <div class="row">
               <div class="col-12 text-right">
                 <%= link_to 'Show', message, class: 'cvierkacz-button-outline cvierkacz-button-small' %>
-                <% if message.user.id == current_user.id %>
+                <%= link_to 'Edit', edit_message_path(message.id), class: 'cvierkacz-button-outline cvierkacz-button-small' %>
+                <%= link_to 'Delete', message, method: :delete, class: 'cvierkacz-button-outline-red cvierkacz-button-small' %>
+                <!--<% if message.user.id == current_user.id %>
                   <%= link_to 'Edit', edit_message_path(message.id), class: 'cvierkacz-button-outline cvierkacz-button-small' %>
                   <%= link_to 'Delete', message, data: { confirm: "Are you sure?" }, method: :delete, class: 'cvierkacz-button-outline-red cvierkacz-button-small' %>
-                <% end %>
+                <% end %>-->
               </div>
             </div>
           </div>

@@ -29,13 +29,12 @@ class MessagesController < ApplicationController
 
   def edit 
     @message = Message.find(params[:id])
-    if @message.user != current_user
-      redirect_to message_path
-    end
+    authorize(@message)
   end
 
   def update 
     @message = Message.find(params[:id])
+    authorize(@message)
     if @message.update(message_params)
       flash[:notice] = "Message has been edited."
       redirect_to @message
@@ -47,9 +46,8 @@ class MessagesController < ApplicationController
 
   def destroy
     message = Message.find(params[:id])
-    if message.user == current_user
-      message.destroy
-    end
+    authorize(message)
+    message.destroy
     flash[:notice] = "Message has been deleted."
     redirect_to messages_path
   end
