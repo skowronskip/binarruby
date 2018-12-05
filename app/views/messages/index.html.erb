@@ -11,15 +11,19 @@
     <% @messages.each do |message| %>
       <div class="col-12 col-sm-6 col-lg-4 mt-4">
         <div class="card">
-          <div class="card-img-top">
+          <div class="card-img-top text-center">
+            <% if message.photo.attached? %>
+              <%= image_tag message.photo, class: 'img-fluid' %>
+            <% else %>
               <%= image_tag('Funny-Cat-Jokes2.jpg', class: 'img-fluid') %>
+            <% end %>
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col-12">
                 <div class="avatar-40">
-                  <% if message.user.picture.present? %>
-                    <%= image_tag(message.user.picture.url) %>
+                  <% if message.user.avatar.attached? %>
+                    <%= image_tag message.user.avatar.variant(resize: "200x200") %>
                   <% else %>
                     <%= image_tag('default-avatar.png') %>
                   <% end %>

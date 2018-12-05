@@ -13,6 +13,14 @@
         <%= form.label :content %>
         <%= form.text_area :content, class: 'form-control' %>
     </div>
+    <% if message.photo.attached? %>
+      <h2>Current photo:</h2>
+      <%= image_tag message.photo %><br />
+    <% end %>
+    <div class="form-group mt-4">
+        <%= form.label :photo %><br />
+        <%= form.file_field :photo %>
+    </div>
     <div class="actions">
         <%= form.submit "Submit", class: 'cvierkacz-button' %>
     </div>

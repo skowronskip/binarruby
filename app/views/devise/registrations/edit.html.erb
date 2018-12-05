@@ -46,21 +46,18 @@
           </div>
       </div>
       <div class="col-12 col-md-6 edit-user-avatar-border mt-3">
-        <h3><%= f.label :picture %></h3>
-        <% if current_user.picture.url.present? %>
+        <h3><%= f.label :avatar %></h3>
+        <% if current_user.avatar.attached? %>
           <div class="avatar-200 mt-3">
-            <%= image_tag(current_user.picture.url, class: 'mb-3') %>
+            <%= image_tag current_user.avatar.variant(resize: "200x200") %>
           </div>
-          <%= f.check_box :remove_picture %>
-          <%= f.label :remove_picture %>
         <% else %>
           <div class="avatar-200 mt-3">
             <%= image_tag('default-avatar.png', class: 'mb-3') %>
           </div>
         <% end %>
         <br />
-        <%= f.file_field :picture %>
-        <%= f.hidden_field :picture_cache %>
+        <%= f.file_field :avatar %>
       </div>
     </div>
     <div class="row">

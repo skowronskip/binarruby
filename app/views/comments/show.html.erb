@@ -10,8 +10,8 @@
                     <div class="col-12">
                       <h4><%= @comment.content %></h4>
                       <div class="avatar-30">
-                        <% if @comment.user.picture.present? %>
-                          <%= image_tag(@comment.user.picture.url) %>
+                        <% if @comment.user.avatar.attached? %>
+                          <%= image_tag @comment.user.avatar.variant(resize: "30x30") %>
                         <% else %>
                           <%= image_tag('default-avatar.png') %>
                         <% end %>
