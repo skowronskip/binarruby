@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
       @comment.user = current_user
       if @comment.save
         flash[:notice] = "Comment has been added."
-        redirect_to @comment
+        redirect_to message_path(@comment.message_id)
       else
         flash[:alert] = "Error occured, try again."
         render :new
