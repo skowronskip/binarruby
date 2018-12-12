@@ -62,3 +62,6 @@ gem 'carrierwave', '~> 1.0'
 
 # Pundit
 gem 'pundit'
+
+# Kaminari
+gem "kaminari"

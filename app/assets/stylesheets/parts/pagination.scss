@@ -1,0 +1,17 @@
+.pagination {
+  text-align: center;
+  width: 100%;
+  display: block;
+  span {
+    padding: 10px;
+  }
+
+  a, a:hover {
+    color: $main-color;
+    text-decoration: none;
+  }
+
+  .current {
+    font-weight: 600;
+  }
+}

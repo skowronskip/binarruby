@@ -1,9 +1,9 @@
 class MessagesController < ApplicationController
   before_action	:authenticate_user!
   def index
-    @messages_array = Message.all.order(created_at: :desc)
-    @messages = @messages_array.map {|message| MessagePresenter.new(message)}
-
+    #@messages_array = Message.all.page(params[:page]).order(created_at: :desc)
+    @messages = Message.all.page(params[:page]).order(created_at: :desc)
+    @messages_array = @messages.map {|message| MessagePresenter.new(message)}
   end
 
   def show
