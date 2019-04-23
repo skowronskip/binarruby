@@ -11,5 +11,29 @@
  * It is generally better to create a new file per style scope.
  *.
  *= require_self
- *= require_tree
  */
+
+$main-color: #0005e5;
+$second-color: #000975;
+$dark-color: #404040;
+$dark-second-color: #202020;
+
+a, a:hover {
+  color: $main-color;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+
+
+@import 'parts/messages.scss';
+@import 'parts/alerts.scss';
+@import 'parts/comments.scss';
+@import 'parts/users.scss';
+@import 'parts/buttons.scss';
+@import 'parts/pagination.scss';
+
+.word-wrap {
+    word-wrap: break-word;
+}
