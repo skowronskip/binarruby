@@ -31,6 +31,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
+  host: localhost
   database: binarruby_production
   pool: 5
   username: binarruby
