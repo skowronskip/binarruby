@@ -1,24 +1,27 @@
-# README
+# Description
+Application created during Ruby on rails workshops organized by Binarapps at Technology University of Lodz.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+It is simplified version of twitter. There are following functionalities:
+- Sigining Up new Accounts and logging in to application thanks to Devise
+- Creating, editing, deleting short messages published on main page of site
+- Creating, editing, deleting shor comments to particular message
+- Uploading a user avatar
+- Uploading, editing message photo.
 
-Things you may want to cover:
+# Deployment
+You have to Ruby 2.5.1 installed. In production enviroment, PostgreSQL is used.
 
-* Ruby version
+1. You have to run 'bundle install' in main directory
+2. In production enviroment you have to update the database config in config/database.yml
+3. Run your local server: 'rails s'
+4. Open 'http://localhost:3000' in your web browser
 
-* System dependencies
+# Technologies
+Used technologies:
+- Ruby
+- Ruby on Rails
+- PostgreSQL
+- Bootstrap
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Demo
+Live demo: http://cvierkacz.pskowron.ski
